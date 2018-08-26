@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="~/Controllers/Master.Master.cs" Inherits="MessageDecoder.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    
+    <link rel="stylesheet" href="~/Css/style.css" type="text/css"/>
+    
+     <script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+     
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"  type="text/javascript"></script> 
+    <script src="../Scripts/ViewImage.js" type="text/javascript"></script>
+     <script src="../Scripts/ValUpload.js" type="text/javascript"></script>
+<asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="height: 644px">
+    <form id="form1" runat="server" style="font-family: 'Myriad Pro Light'; height: 317px;">
+        
+            <asp:Table CssClass="side-table" ID="Table1" runat="server">
+                <asp:TableRow runat="server" VerticalAlign="Top">
+                    <asp:TableCell CssClass="table-cell" runat="server">
+                       <asp:Button ID="Button1" CssClass="menu-button" CommandArgument="1" OnClick="Redirect" runat="server" Text="Home" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" VerticalAlign="Middle">
+                    <asp:TableCell CssClass="table-cell" runat="server">
+                       <asp:Button ID="Button2" CssClass="menu-button" CommandArgument="2" OnClick="Redirect" runat="server" Text="Encode" />
+            
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow runat="server" VerticalAlign="Bottom">
+                    <asp:TableCell CssClass="table-cell" runat="server"> 
+                       <asp:Button ID="Button3" CssClass="menu-button" CommandArgument="3" OnClick="Redirect" runat="server"  Text="Decode" />
+            
+                        </asp:TableCell>
+                </asp:TableRow>
+               </asp:Table>
+            
+            <asp:Panel ID="MainPanel" CssClass="main-panel" runat="server" >
+            <div>
+                <h1  style="height: 84px; vertical-align: middle; text-align: center;">Secret Message Image Encryptor</h1>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </asp:Panel>
+        
+    </form>
+</body>
+    <footer>
+  <p>&copy; 2018 by M.Ibrahim (Mody)</p>
+</footer>
+</html>
