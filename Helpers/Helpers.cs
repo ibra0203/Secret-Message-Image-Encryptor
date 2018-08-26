@@ -116,12 +116,12 @@ namespace MessageDecoder
                     //Read the image data to check if it's valid
                     using (System.Drawing.Image myImage = System.Drawing.Image.FromStream(fileUpload.PostedFile.InputStream))
                     {
-                        //If it's not a square
+                       /* //If it's not a square
                         if (myImage.Height != myImage.Width)
                         {
                             //Display error because image isn't square
                             result = IMAGE_UPLOAD_RESULT.DIMNOTEQUAL;
-                        }
+                        }*/
                         //Check if the image width is greater than the maximum width allowed (for memroy reasons)
                         if (myImage.Width > MAXWIDTH)
                         {
@@ -204,8 +204,14 @@ namespace MessageDecoder
              0 to a white pixel and 1 to a black pixel. Where r*r=count.
             */
             int r =(int) Math.Ceiling(Math.Sqrt(count));
+            int rS = r * r;
+            int w = r;
+            int h = r;
+
+            int extraPixels = rS - count;
+            h -=(int) Math.Floor((double)extraPixels / w);
             //New bitmap with the dimensions r*r
-            Bitmap bmp = new Bitmap(r, r);
+            Bitmap bmp = new Bitmap(w, h);
             //GDI+ drawing surface from our image so we can draw on it
             Graphics grp = Graphics.FromImage(bmp);
             //This counter will count the number of characters in the binary string
@@ -262,11 +268,12 @@ namespace MessageDecoder
             //Open bitmap from filename
             Bitmap bmp = new Bitmap(filename);
             //Get r, which represents both width and height of the image
-            int r = bmp.Width;
+            int w = bmp.Width;
+            int h = bmp.Height;
             //Loop through the y and x coordinates of the image
-            for(int y=0; y<r; y++)
+            for(int y=0; y<h; y++)
             {
-                for (int x = 0; x < r; x++)
+                for (int x = 0; x < w; x++)
                 {
                     //Get current color 
                     Color col = bmp.GetPixel(x, y);
