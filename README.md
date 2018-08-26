@@ -20,7 +20,7 @@ Read every pixel in the image and convert it to a binary string => convert binar
 
 ### Step 2: Generating The Image
 
-The code for generating the image from a binary string can be found in ***"Helpers/Helpers.cs"***. 
+The code for generating the image from a binary string can be found in ***"Helpers/Helpers.cs".*** 
 The function ***"GenerateImageFromBinary"*** is fully responsible for that. Every step is documented there through comments.
 
 The first step is calculating the width and height of the image. To make things easier, **the image is always a square.** Since every character in binary string is going to be represented, the width and height are decided by getting the square root of the binary string's length then ceiling it. For example if the length is 108, the square root of that will be around 10.4. if you ceiled it, it's 11. So the image will end up being 11\*11 which is 121. That means we get an extra 13 pixels. So there might be a little bit of space to improve the algorithm.
@@ -37,7 +37,7 @@ The image on the left here is generated using around a 7200 characters message a
 The one on the right is generated with around a 2400 characters message and a 10 characters key.
 ![Alt text](Screenshots/comparison.png?raw=true "Comparison")
 #### **=Image can't contain colors other than white, black and red**
-#### **=If the binary string's length wasn't an even number, the image will contain a red pixel**
+#### **=If the binary string's length's square root wasn't an integer, the image will contain a red pixel**
 
 
 # ----
