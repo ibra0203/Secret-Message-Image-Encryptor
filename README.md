@@ -2,6 +2,9 @@
 ## Introduction
 This is an ASP.NET web application that encrypts a message using a key and saves the output to an image. The image can then be decrypted using the same key.
 
+To try the application:
+http://messageencryptor.azurewebsites.net
+
 ## Encryption/Decryption Explained
 If you tried to encrypt a message using this app, you'll get a similar result to this:
 
