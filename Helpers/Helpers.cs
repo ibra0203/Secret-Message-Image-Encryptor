@@ -216,7 +216,7 @@ namespace MessageDecoder
             //Get the extra rows we can remove by dividing extraPixels by the width (number of pixels in a row)
             h -=(int) Math.Floor((double)extraPixels / w);
 
-            //New bitmap with the dimensions r*r
+            //New bitmap with the dimensions w*h
             Bitmap bmp = new Bitmap(w, h);
             //GDI+ drawing surface from our image so we can draw on it
             Graphics grp = Graphics.FromImage(bmp);
@@ -226,9 +226,9 @@ namespace MessageDecoder
             bool finishedMessage = false;
 
             //Loop through the x and y of the image through a nested for loop.
-            for(int y=0; y<r; y++)
+            for(int y=0; y<h; y++)
             {
-                for(int x=0; x<r; x++)
+                for(int x=0; x<w; x++)
                 {
                     //If the binary string is over, set the current pixel to red to mark it and break
                     if(i>= count)
