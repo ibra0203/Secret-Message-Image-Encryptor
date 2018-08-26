@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -204,12 +204,18 @@ namespace MessageDecoder
              0 to a white pixel and 1 to a black pixel. Where r*r=count.
             */
             int r =(int) Math.Ceiling(Math.Sqrt(count));
+            //rS is r^2
             int rS = r * r;
+            //Keeping track of w and h, see if there are any extra rows we can remove
             int w = r;
             int h = r;
 
+            //Get the extra pixels by substracting count from rS
             int extraPixels = rS - count;
+
+            //Get the extra rows we can remove by dividing extraPixels by the width (number of pixels in a row)
             h -=(int) Math.Floor((double)extraPixels / w);
+
             //New bitmap with the dimensions r*r
             Bitmap bmp = new Bitmap(w, h);
             //GDI+ drawing surface from our image so we can draw on it
