@@ -4,6 +4,7 @@ This is an ASP.NET web application that encrypts a message using a key and saves
 
 To try the application:
 http://messageencryptor.azurewebsites.net
+(if the website is down, please clone the repository and run it locally)
 
 ## Encryption/Decryption Explained
 If you tried to encrypt a message using this app, you'll get a similar result to this:
